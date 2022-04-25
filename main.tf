@@ -7,52 +7,6 @@ resource "aws_vpc" "main" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "jupiter"
-  }
-}
-
-resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.1.0/24"
-
-  tags = {
-    Name = "PublicSub"
-  }
-}
-
-resource "aws_subnet" "mainb" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.16.0/20"
-
-  tags = {
-    Name = "PrivateSub"
-  }
-}
-
-resource "aws_instance" "Instance" {
-  ami           = "ami-04505e74c0741db8d"
-  instance_type = "t2.micro"
-  subnet_id = aws_subnet.main.id 
-
-  tags = {
-    Name = "Oasis"
-  }
-}
-
-resource "aws_instance" "Instance2" {
-  ami           = "ami-04505e74c0741db8d"
-  instance_type = "t2.micro"
-  subnet_id = aws_subnet.mainb.id 
-
-  tags = {
-    Name = "Safari"
-  }
-}
-
-resource "aws_internet_gateway" "gw" {
-  vpc_id = aws_vpc.main.id
-
-  tags = {
-    Name = "DemoGW"
+    Name = "jupiter003"
   }
 }
